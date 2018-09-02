@@ -32,4 +32,3 @@ spec:
         image: how2die/website-arm
         ports:
         - containerPort: 80
-        
