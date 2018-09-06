@@ -9,7 +9,7 @@ pipeline {
     stage('Kubectl test...') {
       steps {
         sh("kubectl get pods")
-        sh("kubectl apply -f deployment.yaml")
+        sh("kubectl apply -f website.git/deployment.yaml")
       }
     } 
   }
