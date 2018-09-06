@@ -8,8 +8,6 @@ pipeline {
     }
     stage('Kubectl test...') {
       steps {
-        sh("kubectl get pods")
-        sh("ls")
         sh("kubectl apply -f k8s/deployment.yml")
       }
     } 
