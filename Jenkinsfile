@@ -10,7 +10,7 @@ pipeline {
       steps {
         sh("kubectl get pods")
         sh("ls")
-        sh("kubectl apply -f website/deployment.yaml")
+        sh("kubectl apply -f k8s/deployment.yaml")
       }
     } 
   }
