@@ -21,7 +21,7 @@ pipeline {
       when { branch 'master' }
       steps {
         // Modify Deployment config to force image repull
-        sh("kubectl patch -f $deploymentConfig -p \
+        sh("kubectl patch -f $deploymentConfig -p
            "{\"spec\":{\"template\":{\"metadata\":{\"labels\":{\"date\":\"`date +'%s'`\"}}}}}")
         sh("kubectl apply -f $deploymentConfig")
       }
