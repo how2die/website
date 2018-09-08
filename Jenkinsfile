@@ -1,6 +1,6 @@
 def project = "how2die"
 def app = "website"
-def imageTag = $project/$app
+def imageTag = "$project/$app"
 def deploymentConfig = "deployment.yml"
 pipeline {
   agent any
