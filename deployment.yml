@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
       - name: how2die-website
-        image: how2die/website-arm
+        image: how2die/website
         ports:
         - containerPort: 80
         imagePullPolicy: Always
