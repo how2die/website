@@ -1,6 +1,5 @@
 def project = "how2die"
 def app = "website"
-def dockerId = $project
 def imageTag = $project/$app
 def deploymentConfig = "deployment.yml"
 pipeline {
@@ -8,13 +7,14 @@ pipeline {
   stages {
     stage('Build Docker image') {
       steps {
-        sh("docker build . -t $imageName")
+        sh("docker build . -t $imageTag")
       }
     }
     stage('Push Docker image') {
       steps {
-        sh("docker tag $imageName $imageName")
-        sh("docker push $imageName")
+        sh("docker tag $imageTag $imageTag")
+        sh("echo $DOCKER_PASSWORD | docker login --username $DOCKER_USER_ID --password-stdin $DOCKER_REGISTRY_URL")
+        sh("docker push $imageTag")
       }
     } 	
     stage('Deploy to production') {
