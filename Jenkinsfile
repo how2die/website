@@ -1,4 +1,7 @@
-def imageName = "how2die/website"
+def project = "how2die"
+def app = "website"
+def dockerId = $project
+def imageTag = $project/$app
 def deploymentConfig = "deployment.yml"
 pipeline {
   agent any
@@ -14,7 +17,8 @@ pipeline {
         sh("docker push $imageName")
       }
     } 	
-    stage('Kubernetes deploy') {
+    stage('Deploy to production') {
+      when { branch 'master' }
       steps {
         sh("kubectl apply -f $deploymentConfig")
       }
