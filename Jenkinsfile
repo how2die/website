@@ -21,11 +21,12 @@ pipeline {
     stage('Deploy to production') {
       when { branch 'master' }
       steps {
+        sh("kubectl apply -f $deploymentConfig")
         // Modify Deployment config to force image repull
         sh("""
-           kubectl patch deployment $deploymentName -p "{\\"spec\\":{\\"template\\":{\\"metadata\\":{\\"labels\\":{\\"date\\":\\"`date +'%s'`\\"}}}}}"
+           kubectl patch deployment $deploymentName -p \
+           "{\\"spec\\":{\\"template\\":{\\"metadata\\":{\\"labels\\":{\\"date\\":\\"`date +'%s'`\\"}}}}}"
            """)
-        sh("kubectl apply -f $deploymentConfig")
       }
     } 
   }
