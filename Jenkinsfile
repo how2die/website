@@ -20,6 +20,9 @@ pipeline {
     stage('Deploy to production') {
       when { branch 'master' }
       steps {
+        # Change Deployment config (using a date label) to force image repull
+        sh("kubectl patch -f $deploymentConfig -p \
+           "{\"spec\":{\"template\":{\"metadata\":{\"labels\":{\"date\":\"`date +'%s'`\"}}}}}")
         sh("kubectl apply -f $deploymentConfig")
       }
     } 
