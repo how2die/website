@@ -3,6 +3,7 @@ def app = "website"
 def imageTag = "$project/$app"
 def deploymentName = "how2die-website-deployment"
 def deploymentConfig = "deployment.yml"
+
 pipeline {
   agent any
   stages {
