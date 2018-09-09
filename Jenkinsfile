@@ -14,10 +14,14 @@ pipeline {
     }
     stage('Push Docker image') {
       steps {
-        withCredentials([string(credentialsId: 'docker-password', variable: 'PASSWORD')]) {
-          sh("docker tag $imageTag $imageTag")
-          sh("echo $PASSWORD | docker login --username $DOCKER_USER_ID --password-stdin $DOCKER_REGISTRY_URL")
-          sh("docker push $imageTag")
+        withCredentials([[$class: 'UsernamePasswordMultiBinding', 
+            credentialsId: 'docker-hub',
+            usernameVariable: 'DOCKER_HUB_USER_ID', 
+            passwordVariable: 'DOCKER_HUB_PASSWORD']]) {
+          def repoImageTag = "$DOCKER_HUB_USER_ID/$app"
+          sh("docker tag $imageTag $repoImageTag")
+          sh("echo $DOCKER_HUB_PASSWORD | docker login --username $DOCKER_HUB_USER_ID")
+          sh("docker push $repoImageTag")
         }
       }
     } 	
@@ -27,9 +31,9 @@ pipeline {
         sh("kubectl apply -f $deploymentConfig")
         // Modify Deployment config to force image repull
         sh("""
-           kubectl patch deployment $deploymentName -p \
-           "{\\"spec\\":{\\"template\\":{\\"metadata\\":{\\"labels\\":{\\"date\\":\\"`date +'%s'`\\"}}}}}"
-           """)
+            kubectl patch deployment $deploymentName -p \
+            "{\\"spec\\":{\\"template\\":{\\"metadata\\":{\\"labels\\":{\\"date\\":\\"`date +'%s'`\\"}}}}}"
+          """)
       }
     } 
   }
