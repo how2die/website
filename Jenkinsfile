@@ -19,7 +19,7 @@ pipeline {
             usernameVariable: 'DOCKER_HUB_USER_ID', 
             passwordVariable: 'DOCKER_HUB_PASSWORD']]) {
           sh("docker tag $imageTag $DOCKER_HUB_USER_ID/$app")
-          sh("echo $DOCKER_HUB_PASSWORD | docker login --username $DOCKER_HUB_USER_ID")
+          sh("echo $DOCKER_HUB_PASSWORD | docker login --username $DOCKER_HUB_USER_ID --password-stdin")
           sh("docker push $DOCKER_HUB_USER_ID/$app")
         }
       }
