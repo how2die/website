@@ -1,7 +1,7 @@
 def project = "how2die"
 def app = "website"
 def imageTag = "$project/$app"
-def deploymentName = "how2die-website-deployment"
+def deploymentName = "website"
 def deploymentConfig = "deployment.yml"
 
 pipeline {
