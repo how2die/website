@@ -28,8 +28,8 @@ spec:
         app: website
     spec:
       containers:
-      - name: website
-        image: how2die/website
-        ports:
-        - containerPort: 80
-        imagePullPolicy: Always
+        - name: website
+          image: how2die/website
+          ports:
+            - containerPort: 80
+          imagePullPolicy: Always

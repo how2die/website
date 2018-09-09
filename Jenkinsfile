@@ -2,7 +2,7 @@ def project = "how2die"
 def app = "website"
 def imageTag = "$project/$app"
 def deploymentName = "website"
-def deploymentConfig = "deployment.yml"
+def deploymentConfig = "deployment.yaml"
 
 pipeline {
   agent any
