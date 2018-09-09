@@ -16,7 +16,7 @@ pipeline {
         withCredentials([usernamePassword(credentialsId: 'docker',
             usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
           sh("docker tag $imageTag $imageTag")
-          sh("echo $PASSWORD | docker login --username $USERNAME --password-stdin DOCKER_REGISTRY_URL")
+          sh("echo $PASSWORD | docker login --username $USERNAME --password-stdin $DOCKER_REGISTRY_URL")
           sh("docker push $imageTag")
         }
       }
