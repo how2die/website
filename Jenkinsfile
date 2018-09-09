@@ -18,10 +18,9 @@ pipeline {
             credentialsId: 'docker-hub',
             usernameVariable: 'DOCKER_HUB_USER_ID', 
             passwordVariable: 'DOCKER_HUB_PASSWORD']]) {
-          def repoImageTag = "$DOCKER_HUB_USER_ID/$app"
-          sh("docker tag $imageTag $repoImageTag")
+          sh("docker tag $imageTag $DOCKER_HUB_USER_ID/$app")
           sh("echo $DOCKER_HUB_PASSWORD | docker login --username $DOCKER_HUB_USER_ID")
-          sh("docker push $repoImageTag")
+          sh("docker push $DOCKER_HUB_USER_ID/$app")
         }
       }
     } 	
