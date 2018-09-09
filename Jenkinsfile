@@ -13,10 +13,9 @@ pipeline {
     }
     stage('Push Docker image') {
       steps {
-        withCredentials([usernamePassword(credentialsId: 'docker',
-            usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+        withCredentials([string(credentialsId: 'docker-password', variable: 'PASSWORD')]) {
           sh("docker tag $imageTag $imageTag")
-          sh("echo $PASSWORD | docker login --username $USERNAME --password-stdin $DOCKER_REGISTRY_URL")
+          sh("echo $PASSWORD | docker login --username $DOCKER_USER_ID --password-stdin $DOCKER_REGISTRY_URL")
           sh("docker push $imageTag")
         }
       }
