@@ -14,6 +14,7 @@
 				<li class="planetA"><a href="https://kubernetes.io/"><img src="img/k8s.png" class="maxsized"/></a></li>
 				<li class="planetB"><a href="https://www.docker.com/"><img src="img/docker.png" class="maxsized"/></a></li>
 				<li class="planetC"><a href="https://www.nginx.com/"><img src="img/nginx.png" class="maxsized"/></a></li>
+				<?php echo("php test"); ?>
 			</ul>
 		</div>
 	</body>
