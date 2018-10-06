@@ -1,5 +1,5 @@
 const apiRoot = "/api/messages";
-const messageId = "000000000000000000000000";
+const messageId = "0";
 const getIntervalMs = 1000;
 const htmlMessageId = "message";
 
