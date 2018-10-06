@@ -39,7 +39,9 @@ ul.solarsystem li.planetA {
     top: 270px;
     left: 430px;
     z-index: 99;
+    animation-name:orbitA;
 }
+
 ul.solarsystem li.planetA img {
     top: 10px;
     left: 10px;
@@ -51,6 +53,7 @@ ul.solarsystem li.planetB {
     top: 240px;
     left: 400px;
     z-index: 98;
+    animation-name:orbitB;
 }
 
 ul.solarsystem li.planetB img {
@@ -64,7 +67,9 @@ ul.solarsystem li.planetC {
     top: 210px;
     left: 370px;
     z-index: 97;
+    animation-name:orbitC;
 }
+
 ul.solarsystem li.planetC img {
     top: 56px;
     left: 5px;
@@ -76,7 +81,9 @@ ul.solarsystem li.planetD {
     top: 180px;
     left: 340px;
     z-index: 96;
+    animation-name:orbitD;
 }
+
 ul.solarsystem li.planetD img {
     top: 0px;
     left: 175px;
@@ -88,6 +95,7 @@ ul.solarsystem li.planetE {
     top: 150px;
     left: 310px;
     z-index: 95;
+    animation-name:orbitE;
 }
 
 ul.solarsystem li.planetE img {
@@ -95,7 +103,32 @@ ul.solarsystem li.planetE img {
     left: 24px;
 }
 
-@keyframes orbit { 
+@keyframes defaultOrbit { 
+    from { transform:rotate(0deg) } 
+    to { transform:rotate(360deg) } 
+}
+
+@keyframes orbitA { 
+    from { transform:rotate(0deg) } 
+    to { transform:rotate(360deg) } 
+}
+
+@keyframes orbitB { 
+    from { transform:rotate(0deg) } 
+    to { transform:rotate(360deg) } 
+}
+
+@keyframes orbitC { 
+    from { transform:rotate(0deg) } 
+    to { transform:rotate(360deg) } 
+}
+
+@keyframes orbitD { 
+    from { transform:rotate(0deg) } 
+    to { transform:rotate(360deg) } 
+}
+
+@keyframes orbitE { 
     from { transform:rotate(0deg) } 
     to { transform:rotate(360deg) } 
 }
@@ -103,7 +136,7 @@ ul.solarsystem li.planetE img {
 ul.solarsystem li {
     animation-iteration-count:infinite;
     animation-timing-function:linear;
-    animation-name:orbit;
+    animation-name:defaultOrbit;
 }
 
 ul.solarsystem li.planetA {animation-duration:6s; }
