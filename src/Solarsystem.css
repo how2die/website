@@ -1,0 +1,185 @@
+div.Solarsystem-wrapper {
+    width: 960px;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+  
+ul.Solarsystem {
+    position: relative;
+    height: 520px;
+    list-style: none;
+    transition: all 0.09s ease-in;
+    overflow: hidden;
+}
+  
+ul.Solarsystem li {
+    display: block;
+    position: absolute;
+    border: 0px solid grey;
+}
+  
+ul.Solarsystem li img {
+    position: absolute;
+    border-radius: 5px;
+    max-height: 27px;
+}
+
+img.centered {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+ul.Solarsystem li.sun {
+    width: 40px;
+    height: 40px;
+    top: 302px;
+    left: 462px;
+    border: none;
+    z-index: 100;
+    transition: all 0.2s ease-in;
+}
+  
+ul.Solarsystem li.planetA {
+    width: 100px;
+    height: 100px;
+    top: 270px;
+    left: 430px;
+    z-index: 99;
+    animation-name: orbitA;
+}
+  
+ul.Solarsystem li.planetA img {
+    top: 10px;
+    left: 10px;
+}
+  
+ul.Solarsystem li.planetB {
+    width: 160px;
+    height: 160px;
+    top: 240px;
+    left: 400px;
+    z-index: 98;
+    animation-name: orbitB;
+}
+  
+ul.Solarsystem li.planetB img {
+    top: 118px;
+    left: 5px;
+}
+  
+ul.Solarsystem li.planetC {
+    width: 220px;
+    height: 220px;
+    top: 210px;
+    left: 370px;
+    z-index: 97;
+    animation-name: orbitC;
+}
+ 
+ul.Solarsystem li.planetC img {
+    top: 56px;
+    left: 5px;
+}
+
+ul.Solarsystem li.planetD {
+    width: 280px;
+    height: 280px;
+    top: 180px;
+    left: 340px;
+    z-index: 96;
+    animation-name: orbitD;
+}
+
+ul.Solarsystem li.planetD img {
+    top: 0px;
+    left: 175px;
+}
+
+ul.Solarsystem li.planetE {
+    width: 340px;
+    height: 340px;
+    top: 150px;
+    left: 310px;
+    z-index: 95;
+    animation-name: orbitE;
+}
+
+ul.Solarsystem li.planetE img {
+    top: 67px;
+    left: 24px;
+}
+  
+@keyframes defaultOrbit { 
+    from { transform: rotate(0deg) } 
+    to { transform: rotate(360deg) } 
+}
+  
+@keyframes orbitA { 
+    from { transform: rotate(0deg) } 
+    to { transform: rotate(360deg) } 
+}
+ 
+@keyframes orbitB { 
+    from { transform: rotate(0deg) } 
+    to { transform: rotate(360deg) } 
+}
+  
+@keyframes orbitC { 
+    from { transform: rotate(0deg) } 
+    to { transform: rotate(360deg) } 
+}
+
+@keyframes orbitD { 
+    from { transform: rotate(0deg) } 
+    to { transform: rotate(360deg) } 
+}
+
+@keyframes orbitE { 
+    from { transform: rotate(0deg) } 
+    to { transform: rotate(360deg) } 
+}
+  
+ul.Solarsystem li {
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-name: defaultOrbit;
+}
+    
+ul.Solarsystem li.planetA { animation-duration: 7s; }
+ul.Solarsystem li.planetB { animation-duration: 11s; }
+ul.Solarsystem li.planetC { animation-duration: 13s; }
+ul.Solarsystem li.planetD { animation-duration: 17s; }
+ul.Solarsystem li.planetE { animation-duration: 19s; }
+
+@keyframes flicker {
+    0%   { opacity: 1; }
+    50%  { opacity: 0; }
+    100% { opacity: 1; }
+}
+  
+@-o-keyframes flicker{
+    0%   { opacity: 1; }
+    50%  { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+  @-moz-keyframes flicker{
+    0%   { opacity: 1; }
+    50%  { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@-webkit-keyframes flicker{
+    0%   { opacity: 1; }
+    50%  { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.animate-flicker {
+    -webkit-animation: flicker 2s infinite;
+    -moz-animation: flicker 2s infinite;
+    -o-animation: flicker 2s infinite;
+    animation: flicker 2s infinite;
+}

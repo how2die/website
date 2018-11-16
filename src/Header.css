@@ -1,0 +1,31 @@
+.Header div {
+    overflow: hidden;
+} 
+  
+.Header-logo {
+    width: 24px;
+    height: auto;
+    padding: 12px;
+}
+  
+.Header-logo:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+  
+.Header-logo:active {
+    background-color: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+  
+img.Header-logo {
+    opacity: 0.5;
+}
+  
+.Header-left {
+    float: left;
+}
+  
+.Header-right {
+    float: right;
+}
