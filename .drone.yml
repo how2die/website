@@ -1,1 +1,15 @@
--- test
+kind: pipeline
+name: default
+
+platform:
+  os: linux
+  arch: arm
+
+steps:
+- name: docker  
+  image: plugins/docker
+  settings:
+    username: kevinbacon
+    password: pa55word
+    repo: how2die/website
+    tags: latest
