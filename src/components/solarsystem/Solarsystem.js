@@ -1,9 +1,9 @@
 import React from 'react';
-import pi from './img/tech/pi.svg';
-import k8s from './img/tech/k8s.svg';
-import node from './img/tech/node.svg';
-import react from './img/tech/react.svg';
-import './Solarsystem.css';
+import pi from 'components/solarsystem/img/pi.svg';
+import k8s from 'components/solarsystem/img/k8s.svg';
+import node from 'components/solarsystem/img/node.svg';
+import react from 'components/solarsystem/img/react.svg';
+import 'components/solarsystem/Solarsystem.css';
 
 class Image extends React.Component {
     constructor() {
@@ -12,13 +12,12 @@ class Image extends React.Component {
     }
 
     render() {
-        let flickerClass = this.props.flicker ? 'animate-flicker' : '';
         return (
             <img
                 style={this.state.loaded ? {} : { display: 'none' }}
                 src={this.props.src}
                 alt={this.props.alt}
-                className={`centered ${flickerClass}`}
+                className={`centered`}
                 onLoad={() => this.setState({ loaded: true })}
             />
         );
@@ -28,7 +27,7 @@ class Image extends React.Component {
 const Planet = (props) => {
     return (
         <a href={props.link}>
-            <Image src={props.img} alt="planet" flicker={props.flicker} />
+            <Image src={props.img} alt="planet" />
         </a>
     );
 };

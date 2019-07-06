@@ -1,6 +1,6 @@
 import React from 'react';
 
-const apiRoot = "/api/messages";
+const apiRoot = "https://how2die.com/api/messages";
 const messageId = "0";
 const getIntervalMs = 1000;
 
