@@ -3,7 +3,6 @@ import pi from './img/tech/pi.svg';
 import k8s from './img/tech/k8s.svg';
 import node from './img/tech/node.svg';
 import react from './img/tech/react.svg';
-import postgres from './img/tech/postgres.svg';
 import './Solarsystem.css';
 
 class Image extends React.Component {
@@ -63,8 +62,6 @@ const createConsistentOrbits = () => {
     consistentOrbit("orbitA", 7000);
     consistentOrbit("orbitB", 11000);
     consistentOrbit("orbitC", 13000);
-    consistentOrbit("orbitD", 17000);
-    consistentOrbit("orbitE", 19000);
 }
 
 createConsistentOrbits();
@@ -75,9 +72,8 @@ const Solarsystem = () => {
             <ul className="Solarsystem">
                 <li className="sun"><Planet img={pi} link="https://www.raspberrypi.org/" /></li>
                 <li className="planetA"><Planet img={k8s} link="https://kubernetes.io/" /></li>
-                <li className="planetB"><Planet img={postgres} link="https://www.postgresql.org/" /></li>
-                <li className="planetC"><Planet img={node} link="https://nodejs.org/en/about/" flicker={true} /></li>
-                <li className="planetD"><Planet img={react} link="https://reactjs.org/" flicker={true} /></li>
+                <li className="planetB"><Planet img={node} link="https://nodejs.org/en/about/" flicker={true} /></li>
+                <li className="planetC"><Planet img={react} link="https://reactjs.org/" flicker={true} /></li>
             </ul>
         </div>
     );
