@@ -71,8 +71,8 @@ const Solarsystem = () => {
             <ul className="Solarsystem">
                 <li className="sun"><Planet img={pi} link="https://www.raspberrypi.org/" /></li>
                 <li className="planetA"><Planet img={k8s} link="https://kubernetes.io/" /></li>
-                <li className="planetB"><Planet img={node} link="https://nodejs.org/en/about/" flicker={true} /></li>
-                <li className="planetC"><Planet img={react} link="https://reactjs.org/" flicker={true} /></li>
+                <li className="planetB"><Planet img={node} link="https://nodejs.org/en/about/" /></li>
+                <li className="planetC"><Planet img={react} link="https://reactjs.org/" /></li>
             </ul>
         </div>
     );

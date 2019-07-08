@@ -15,7 +15,7 @@ ul.Solarsystem {
 ul.Solarsystem li {
     display: block;
     position: absolute;
-    border: 0px solid grey;
+    border: 1px solid grey;
 }
   
 ul.Solarsystem li img {
@@ -51,8 +51,8 @@ ul.Solarsystem li.planetA {
 }
   
 ul.Solarsystem li.planetA img {
-    top: 10px;
-    left: 10px;
+    top: 21px;
+    left: 21px;
 }
   
 ul.Solarsystem li.planetB {
@@ -65,8 +65,8 @@ ul.Solarsystem li.planetB {
 }
   
 ul.Solarsystem li.planetB img {
-    top: 118px;
-    left: 5px;
+    top: 21px;
+    left: 21px;
 }
   
 ul.Solarsystem li.planetC {
@@ -79,8 +79,8 @@ ul.Solarsystem li.planetC {
 }
  
 ul.Solarsystem li.planetC img {
-    top: 56px;
-    left: 5px;
+    top: 21px;
+    left: 21px;
 }
 
 ul.Solarsystem li.planetD {
@@ -93,8 +93,8 @@ ul.Solarsystem li.planetD {
 }
 
 ul.Solarsystem li.planetD img {
-    top: 0px;
-    left: 175px;
+    top: 20px;
+    left: 20px;
 }
 
 ul.Solarsystem li.planetE {
@@ -110,7 +110,7 @@ ul.Solarsystem li.planetE img {
     top: 67px;
     left: 24px;
 }
-  
+
 @keyframes defaultOrbit { 
     from { transform: rotate(0deg) } 
     to { transform: rotate(360deg) } 
