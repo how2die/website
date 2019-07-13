@@ -1,12 +1,12 @@
 div.Solarsystem-wrapper {
-    width: 960px;
+    width: 320px;
     margin: 0 auto;
-    padding: 10px 0;
+    padding-top: 20px;
 }
   
 ul.Solarsystem {
     position: relative;
-    height: 520px;
+    height: 320px;
     list-style: none;
     transition: all 0.09s ease-in;
     overflow: hidden;
@@ -34,8 +34,8 @@ img.centered {
 ul.Solarsystem li.sun {
     width: 40px;
     height: 40px;
-    top: 302px;
-    left: 462px;
+    top: 140px;
+    left: 140px;
     border: none;
     z-index: 100;
     transition: all 0.2s ease-in;
@@ -44,8 +44,8 @@ ul.Solarsystem li.sun {
 ul.Solarsystem li.planetA {
     width: 100px;
     height: 100px;
-    top: 270px;
-    left: 430px;
+    top: 108px;
+    left: 108px;
     z-index: 99;
     animation-name: orbitA;
 }
@@ -58,8 +58,8 @@ ul.Solarsystem li.planetA img {
 ul.Solarsystem li.planetB {
     width: 160px;
     height: 160px;
-    top: 240px;
-    left: 400px;
+    top: 78px;
+    left: 78px;
     z-index: 98;
     animation-name: orbitB;
 }
@@ -72,8 +72,8 @@ ul.Solarsystem li.planetB img {
 ul.Solarsystem li.planetC {
     width: 220px;
     height: 220px;
-    top: 210px;
-    left: 370px;
+    top: 48px;
+    left: 48px;
     z-index: 97;
     animation-name: orbitC;
 }
