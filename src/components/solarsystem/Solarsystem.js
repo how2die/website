@@ -1,7 +1,6 @@
 import React from 'react';
 import pi from 'components/solarsystem/img/pi.svg';
 import k8s from 'components/solarsystem/img/k8s.svg';
-import node from 'components/solarsystem/img/node.svg';
 import react from 'components/solarsystem/img/react.svg';
 import 'components/solarsystem/Solarsystem.css';
 
@@ -60,7 +59,6 @@ const consistentOrbit = (orbitName, milliseconds) => {
 const createConsistentOrbits = () => {
     consistentOrbit("orbitA", 7000);
     consistentOrbit("orbitB", 11000);
-    consistentOrbit("orbitC", 13000);
 }
 
 createConsistentOrbits();
@@ -71,8 +69,7 @@ const Solarsystem = () => {
             <ul className="Solarsystem">
                 <li className="sun"><Planet img={pi} link="https://www.raspberrypi.org/" /></li>
                 <li className="planetA"><Planet img={k8s} link="https://kubernetes.io/" /></li>
-                <li className="planetB"><Planet img={node} link="https://nodejs.org/en/about/" /></li>
-                <li className="planetC"><Planet img={react} link="https://reactjs.org/" /></li>
+                <li className="planetB"><Planet img={react} link="https://reactjs.org/" /></li>
             </ul>
         </div>
     );
