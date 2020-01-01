@@ -50,10 +50,15 @@ class Header extends React.Component {
         super();
         this.state = { showLogin: false, isLoggedIn: false };
         this.setShowLogin = this.setShowLogin.bind(this);
+        this.closePopup = this.closePopup.bind(this);
     }
 
     setShowLogin() {
         this.setState(state => ({ showLogin: true }));
+    }
+
+    closePopup() {
+        this.setState(state => ({ showLogin: false }));
     }
 
     render() {
@@ -63,7 +68,7 @@ class Header extends React.Component {
                     <HeaderHomeButton />
                     {this.state.isLoggedIn ? <HeaderLogoutButton /> : <HeaderLoginButton setShowLogin={this.setShowLogin} />}
                 </header>
-                {this.state.showLogin ? <Popup /> : null}
+                {this.state.showLogin ? <Popup closePopup={this.closePopup}/> : null}
             </div>
         );
     }
