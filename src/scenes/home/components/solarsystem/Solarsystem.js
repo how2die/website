@@ -1,26 +1,22 @@
-import React from 'react';
-import pi from 'components/solarsystem/img/pi.svg';
-import k8s from 'components/solarsystem/img/k8s.svg';
-import react from 'components/solarsystem/img/react.svg';
-import 'components/solarsystem/Solarsystem.css';
+import React, { useState } from 'react';
+import pi from 'scenes/home/components/solarsystem/img/pi.svg';
+import k8s from 'scenes/home/components/solarsystem/img/k8s.svg';
+import react from 'scenes/home/components/solarsystem/img/react.svg';
+import 'scenes/home/components/solarsystem/Solarsystem.css';
 
-class Image extends React.Component {
-    constructor() {
-        super();
-        this.state = { loaded: false };
-    }
+const Image = ({ src, alt }) => {
 
-    render() {
-        return (
-            <img
-                style={this.state.loaded ? {} : { display: 'none' }}
-                src={this.props.src}
-                alt={this.props.alt}
-                className={`centered`}
-                onLoad={() => this.setState({ loaded: true })}
-            />
-        );
-    }
+    const [loaded, setLoaded] = useState(false);
+
+    return (
+        <img
+            style={loaded ? {} : { display: 'none' }}
+            src={src}
+            alt={alt}
+            className={`centered`}
+            onLoad={() => setLoaded(true)}
+        />
+    );
 }
 
 const Planet = (props) => {
