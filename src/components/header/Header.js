@@ -60,8 +60,8 @@ const Header = ({ history }) => {
         <header className="header-class">
             <div className="align-left">
                 <Link to="/"><HeaderHomeButton /></Link>
-                <Link to="/steinsakspapir"><HeaderScissorsButton /></Link>
-                <Link to="/chan"><HeaderChanButton /></Link>
+//                <Link to="/steinsakspapir"><HeaderScissorsButton /></Link>
+//                <Link to="/chan"><HeaderChanButton /></Link>
             </div>
 
             <div className="align-right">
