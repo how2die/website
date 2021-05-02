@@ -1,0 +1,8 @@
+{
+  "realm": "how2die",
+  "auth-server-url": "https://auth.how2die.com/auth/",
+  "ssl-required": "external",
+  "resource": "website",
+  "public-client": true,
+  "confidential-port": 0
+}
