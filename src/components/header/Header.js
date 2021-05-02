@@ -60,8 +60,9 @@ const Header = ({ history }) => {
         <header className="header-class">
             <div className="align-left">
                 <Link to="/"><HeaderHomeButton /></Link>
-//                <Link to="/steinsakspapir"><HeaderScissorsButton /></Link>
-//                <Link to="/chan"><HeaderChanButton /></Link>
+                {(initialized && keycloak.authenticated &&
+		    <Link to="/steinsakspapir"><HeaderScissorsButton /></Link>
+                )}
             </div>
 
             <div className="align-right">
