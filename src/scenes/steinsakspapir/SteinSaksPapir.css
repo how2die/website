@@ -1,0 +1,55 @@
+div.stein-saks-papir {
+    position:fixed;
+    padding:0;
+    margin:0;
+
+    top:0;
+    left:0;
+
+    width: 100%;
+    height: 100%;
+    background-color: pink;
+    z-index: -100;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.stein-saks-papir h1 {
+    color: blue;
+    text-align: center;
+    font-size: 100px;
+    margin-bottom: 40px;
+    font-family: Forte;
+}
+
+.stein-saks-papir .knapper {
+    text-align: center;
+}
+
+.stein-saks-papir .knapper button	{
+    font-size: 80px;
+    padding: 20px;
+    margin: 25px;
+    margin-top: 0px;
+    color: hotpink;
+    background-color: blue;
+    border-radius: 40px;
+    border: solid darkblue 15px;
+    font-family: Forte;
+}
+
+.stein-saks-papir .knapper button:hover {
+    color: blue;
+    background-color: hotpink;
+}
+
+.stein-saks-papir p {
+    text-align: center;
+    font-family: Verdana;
+    color: blue;
+    font-size: 40px;
+}
+
+.stein-saks-papir #resultat {
+    font-weight: bolder;
+}

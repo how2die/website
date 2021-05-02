@@ -1,31 +1,33 @@
-.Header div {
-    overflow: hidden;
-} 
-  
-.Header-logo {
+header.header-class {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+header.header-class > div {
+    display: inline-flex;
+}
+
+.header-logo {
     width: 24px;
-    height: auto;
+    height: 24px;
     padding: 12px;
 }
   
-.Header-logo:hover {
+.header-logo:hover {
     background-color: rgba(0, 0, 0, 0.1);
     cursor: pointer;
 }
   
-.Header-logo:active {
+.header-logo:active {
     background-color: rgba(0, 0, 0, 0.2);
     cursor: pointer;
 }
   
-img.Header-logo {
+img.header-logo {
     opacity: 0.5;
 }
   
-.Header-left {
-    float: left;
-}
-  
-.Header-right {
-    float: right;
+.username {
+    margin: 12px;
 }
