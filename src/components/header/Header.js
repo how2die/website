@@ -61,8 +61,13 @@ const Header = ({ history }) => {
             <div className="align-left">
                 <Link to="/"><HeaderHomeButton /></Link>
                 {(initialized && keycloak.authenticated &&
-		    <Link to="/steinsakspapir"><HeaderScissorsButton /></Link>
-                )}
+		            <Link to="/steinsakspapir"><HeaderScissorsButton /></Link>
+                )} 
+                {(initialized 
+                    && keycloak.authenticated 
+                    && keycloak.realmAccess.roles.includes("CHAN") &&
+		            <Link to="/chan"><HeaderChanButton /></Link>
+                )} 
             </div>
 
             <div className="align-right">
