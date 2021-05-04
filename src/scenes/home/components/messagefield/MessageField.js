@@ -1,62 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
-const apiRoot = "https://how2die.com/api/messages";
-const messageId = "0";
-const getIntervalMs = 1000;
+const MessageField = () => {
 
-class MessageField extends React.Component {
-    constructor() {
-        super();
-        this.state = { loaded: false, value: "", lastWrite: null };
-    }
+    const [message, setMessage] = useState(null);
 
-    componentDidMount = () => {
-        this.getMessage();
-        this.interval = setInterval(() => this.getMessage(), getIntervalMs);
-    }
+    const ws = useRef();
 
-    sendMessage = value => {
-        this.setState({value: value });
-        this.setState({value: value, lastWrite: new Date()}, () => {
-            let request = new XMLHttpRequest();
-            const message = JSON.stringify({ 
-                "content": this.state.value, 
-                "sent": this.state.lastWrite });
-        
-            request.open('PUT', `${apiRoot}/${messageId}`, true);
-            request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-            request.send(message);
-        });
-    }
-
-    getMessage = () => {
-        if (document.hidden) {
-            return;
-        }
-    
-        let request = new XMLHttpRequest();
-        request.open('GET', `${apiRoot}/${messageId}`, true);
-        request.onload = () => {
-            if (request.status === 200) { 
-                const message = JSON.parse(request.response); 
-                const sent = new Date(message.sent);
-                if (!this.state.lastWrite || sent > this.state.lastWrite) {
-                    this.setState({value: message.content, loaded: true});
-                }
+    useEffect(() => {
+        if (!ws.current) {
+            ws.current = new WebSocket("wss://ws.how2die.com");
+            ws.current.onopen = () => {
+                console.log('Connection opened!');
+            }
+            ws.current.onmessage = ({ data }) => setMessage(data);
+            ws.current.onclose = function () {
+                ws.current = null;
             }
         }
-        request.send();
-    }
+    });
 
-    render() {
-        return (
-            <input
-                style={this.state.loaded ? {} : { display: 'none' }}
-                type="text"
-                onChange={e => this.sendMessage(e.target.value)}
-                value={this.state.value}/>
-        );
-    }
-}
+    return (
+        <input
+            style={message === null ? { display: 'none'} : {}}
+            type="text"
+            value={message}
+            onChange={e => {
+                setMessage(e.target.value);
+                ws.current.send(e.target.value);
+            }} />
+    );
+};
 
 export default MessageField;
