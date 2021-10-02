@@ -5,11 +5,18 @@ def deploymentName = "website"
 def deploymentConfig = "deployment.yaml"
 
 pipeline {
-  agent any
+  agent {
+    kubernetes {
+        defaultContainer 'jnlp'
+        yamlFile 'agentpod.yaml'
+    }
+  }
   stages {
     stage('Build Docker image') {
       steps {
-        sh("docker build . -t $imageTag")
+        container('docker') {
+          sh("docker build . -t $imageTag")
+        }
       }
     }
     stage('Push Docker image') {
