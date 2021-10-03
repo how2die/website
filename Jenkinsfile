@@ -16,7 +16,7 @@ pipeline {
         spec:
           containers:
           - name: docker
-            image: docker:20.10.8
+            image: docker/docker:20.10.8
             #command:
             #- cat
             #tty: true
@@ -71,3 +71,4 @@ pipeline {
     } 
   }
 }
+
