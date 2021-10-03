@@ -16,7 +16,7 @@ pipeline {
         spec:
           containers:
           - name: docker
-            image: docker:latest
+            image: docker:20.10.8
             command:
             - cat
             tty: true
@@ -60,12 +60,12 @@ pipeline {
       when { branch 'master' }
       steps {
         containter('docker') {
-        sh("kubectl apply -f $deploymentConfig")
-        // Modify Deployment config to force image repull
+          sh("kubectl apply -f $deploymentConfig")
+          // Modify Deployment config to force image repull
           sh("""
-              kubectl patch deployment $deploymentName -p \
-              "{\\"spec\\":{\\"template\\":{\\"metadata\\":{\\"labels\\":{\\"date\\":\\"`date +'%s'`\\"}}}}}"
-            """)
+            kubectl patch deployment $deploymentName -p \
+            "{\\"spec\\":{\\"template\\":{\\"metadata\\":{\\"labels\\":{\\"date\\":\\"`date +'%s'`\\"}}}}}"
+          """)
         }
       }
     } 
