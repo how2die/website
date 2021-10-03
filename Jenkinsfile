@@ -14,6 +14,7 @@ pipeline {
           labels:
             some-label: pod
         spec:
+          serviceAccountName: jenkins
           containers:
           - name: docker
             image: docker.io/docker:20.10.8
@@ -28,6 +29,8 @@ pipeline {
               mountPath: /var/run
           - name: jnlp
             image: jenkins/inbound-agent:4.10-3-jdk11
+          - name kubectl
+            image: rancher/kubectl:v1.22.2-arm64
           volumes:
           - name: dockersock
             hostPath:
@@ -61,7 +64,7 @@ pipeline {
     stage('Deploy to production') {
       when { branch 'master' }
       steps {
-        container('jnlp') {
+        container('kubectl') {
           sh("kubectl apply -f $deploymentConfig")
           // Modify Deployment config to force image repull
           sh("""
