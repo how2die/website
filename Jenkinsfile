@@ -16,21 +16,21 @@ pipeline {
         spec:
           containers:
           - name: docker
-            image: docker:20.10.8-dind
-            #command:
-            #- cat
-            #tty: true
-            #securityContext:
-            #  privileged: true
-            #volumeMounts:
-            #- name: dockersock
-            #  #mountPath: /var/run/docker.sock
-            #  mountPath: /var/run
-          #volumes:
-          #- name: dockersock
-          #  hostPath:
-          #    #path: /var/run/docker.sock
-          #    path: /var/run/dind/
+            image: docker.io/docker:20.10.8
+            command:
+            - cat
+            tty: true
+            securityContext:
+              privileged: true
+            volumeMounts:
+            - name: dockersock
+              #mountPath: /var/run/docker.sock
+              mountPath: /var/run
+          volumes:
+          - name: dockersock
+            hostPath:
+              #path: /var/run/docker.sock
+              path: /var/run/dind/
       '''
     }
   }
