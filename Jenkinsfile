@@ -61,7 +61,7 @@ pipeline {
     stage('Deploy to production') {
       when { branch 'master' }
       steps {
-        containter('jnlp') {
+        container('jnlp') {
           sh("kubectl apply -f $deploymentConfig")
           // Modify Deployment config to force image repull
           sh("""
