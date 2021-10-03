@@ -32,6 +32,7 @@ pipeline {
 	      #path: /var/run/docker.sock
 	      path: /var/run/dind/
       '''
+    }
   }
   stages {
     stage('Build Docker image') {
