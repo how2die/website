@@ -28,7 +28,6 @@ pipeline {
               mountPath: /var/run
           - name: jnlp
             image: jenkins/inbound-agent:4.10-3-jdk11
-            command: ["sleep", "10000"]
           volumes:
           - name: dockersock
             hostPath:
