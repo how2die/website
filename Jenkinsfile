@@ -30,7 +30,9 @@ pipeline {
           - name: jnlp
             image: jenkins/inbound-agent:4.10-3-jdk11
           - name: kubectl
-            image: how2die/kubectl
+            image: rancher/kubectl:v1.22.2-arm64
+            command:
+            - cat
           volumes:
           - name: dockersock
             hostPath:
