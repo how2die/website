@@ -16,7 +16,7 @@ pipeline {
         spec:
           containers:
           - name: docker
-            image: docker/docker:20.10.8
+            image: library/docker:20.10.8
             #command:
             #- cat
             #tty: true
