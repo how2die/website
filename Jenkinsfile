@@ -29,7 +29,7 @@ pipeline {
               mountPath: /var/run
           - name: jnlp
             image: jenkins/inbound-agent:4.10-3-jdk11
-          - name kubectl
+          - name: kubectl
             image: rancher/kubectl:v1.22.2-arm64
           volumes:
           - name: dockersock
