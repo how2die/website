@@ -1,6 +1,6 @@
 # Website
 
-Just a really cool website.
+Just a really cool website!
 
 ## Building Docker image
 
