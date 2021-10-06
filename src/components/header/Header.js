@@ -65,7 +65,7 @@ const Header = ({ history }) => {
                 )} 
                 {(initialized 
                     && keycloak.authenticated 
-                    && keycloak.realmAccess.roles.includes("CHAN") &&
+                    && keycloak.realmAccess?.roles?.includes("chan") &&
 		            <Link to="/chan"><HeaderChanButton /></Link>
                 )} 
             </div>
