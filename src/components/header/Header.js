@@ -79,7 +79,7 @@ const Header = ({ history }) => {
                 )}
 
                 {(initialized && !keycloak.authenticated &&
-                    <HeaderLoginButton onClick={() => keycloak.login()} />
+                    <HeaderLoginButton onClick={() => keycloak.login({"scope": "roles"})} />
                 )}
 
                 {(initialized && keycloak.authenticated &&
