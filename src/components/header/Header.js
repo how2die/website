@@ -79,7 +79,7 @@ const Header = ({ history }) => {
                 )}
 
                 {(initialized && !keycloak.authenticated &&
-                    <HeaderLoginButton onClick={() => keycloak.login({"scope": "openid chan"})} />
+                    <HeaderLoginButton onClick={() => keycloak.login()} />
                 )}
 
                 {(initialized && keycloak.authenticated &&
