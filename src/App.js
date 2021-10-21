@@ -6,6 +6,7 @@ import Header from 'components/header/Header';
 import Home from 'scenes/home/Home';
 import SteinSaksPapir from 'scenes/steinsakspapir/SteinSaksPapir';
 import Chan from 'scenes/chan/Chan';
+import Token from 'scenes/token/Token';
 import 'App.css';
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
             <Route path="/" exact component={Home} />
             <Route path="/steinsakspapir" component={SteinSaksPapir} />
             <Route path="/chan" component={Chan} />
+            <Route path="/token" component={Token} />
             <Route render={() => <h1>404 :(</h1>} />
           </Switch>
         </div>
