@@ -21,7 +21,7 @@ const App = () => (
           <Route path="/steinsakspapir" element={<SteinSaksPapir />} />
           <Route path="/chan" exact element={<Restricted role="CHAN" component={Chan} />} />
           <Route path="/chan/favorites" exact element={<Restricted role="CHAN" component={ChanFavorites} />} />
-          <Route path="/token" element={Token} />
+          <Route path="/token" element={<Token />} />
           <Route render={() => <h1>404 :(</h1>} />
         </Routes>
       </div>
