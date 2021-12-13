@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 const MessageField = () => {
 
-    const [message, setMessage] = useState(null);
+    const [message, setMessage] = useState("");
 
     const ws = useRef();
 
@@ -17,16 +17,18 @@ const MessageField = () => {
                 ws.current = null;
             }
         }
-    });
+    }, []);
 
     return (
         <input
-            style={message === null ? { display: 'none'} : {}}
+            style={message === null ? { display: 'none' } : {}}
             type="text"
             value={message}
             onChange={e => {
                 setMessage(e.target.value);
-                ws.current.send(e.target.value);
+                if (ws.current.readyState === WebSocket.OPEN) {
+                    ws.current.send(e.target.value);
+                }
             }} />
     );
 };

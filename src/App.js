@@ -11,28 +11,22 @@ import Token from 'scenes/token/Token';
 import { Restricted } from 'components/authorization/Restricted'
 import 'App.css';
 
-const App = () => {
-  return (
-    <ReactKeycloakProvider authClient={new Keycloak()}>
-      <BrowserRouter>
-        <div className="App">
-          <Header />
-          <Routes>
-            <Route path="/" exact component={Home} />
-            <Route path="/steinsakspapir" component={SteinSaksPapir} />
-            <Route path="/chan" exact>
-              <Restricted role="CHAN" component={Chan} />
-            </Route>
-            <Route path="/chan/favorites">
-              <Restricted role="CHAN" component={ChanFavorites} />
-            </Route>
-            <Route path="/token" component={Token} />
-            <Route render={() => <h1>404 :(</h1>} />
-          </Routes>
-        </div>
-      </BrowserRouter>
-    </ReactKeycloakProvider>
-  );
-}
+const App = () => (
+  <ReactKeycloakProvider authClient={new Keycloak()}>
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route path="/" exact element={<Home />} />
+          <Route path="/steinsakspapir" element={<SteinSaksPapir />} />
+          <Route path="/chan" exact element={<Restricted role="CHAN" component={Chan} />} />
+          <Route path="/chan/favorites" exact element={<Restricted role="CHAN" component={ChanFavorites} />} />
+          <Route path="/token" element={Token} />
+          <Route render={() => <h1>404 :(</h1>} />
+        </Routes>
+      </div>
+    </BrowserRouter>
+  </ReactKeycloakProvider>
+)
 
 export default App;
