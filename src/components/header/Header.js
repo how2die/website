@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useKeycloak } from '@react-keycloak/web';
-import { Link, withRouter } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import headerHomeLogo from 'components/header/img/home.svg';
 import headerLoginLogo from 'components/header/img/login.svg';
 import headerLogoutLogo from 'components/header/img/logout.svg';
@@ -52,22 +52,23 @@ const Username = ({ name }) => {
     return <p className="username">{name}</p>;
 };
 
-const Header = ({ history }) => {
+const Header = () => {
 
     const { keycloak, initialized } = useKeycloak();
+    const navigate = useNavigate();
 
     return (
         <header className="header-class">
             <div className="align-left">
                 <Link to="/"><HeaderHomeButton /></Link>
                 {(initialized && keycloak.authenticated &&
-		            <Link to="/steinsakspapir"><HeaderScissorsButton /></Link>
-                )} 
-                {(initialized 
-                    && keycloak.authenticated 
+                    <Link to="/steinsakspapir"><HeaderScissorsButton /></Link>
+                )}
+                {(initialized
+                    && keycloak.authenticated
                     && keycloak.realmAccess?.roles?.includes("chan") &&
-		            <Link to="/chan"><HeaderChanButton /></Link>
-                )} 
+                    <Link to="/chan"><HeaderChanButton /></Link>
+                )}
             </div>
 
             <div className="align-right">
@@ -81,7 +82,7 @@ const Header = ({ history }) => {
 
                 {(initialized && keycloak.authenticated &&
                     <HeaderLogoutButton onClick={() => {
-                        history.push('/');
+                        navigate('/');
                         keycloak.logout();
                     }} />
                 )}
@@ -90,4 +91,4 @@ const Header = ({ history }) => {
     );
 }
 
-export default withRouter(Header);
+export default Header;

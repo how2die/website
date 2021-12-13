@@ -1,7 +1,7 @@
 import React from 'react';
 import { useKeycloak } from '@react-keycloak/web';
 
-export const Chan = ({role, component}) => {
+export const Restricted = ({role, component}) => {
 
     const { keycloak, initialized } = useKeycloak();
 
